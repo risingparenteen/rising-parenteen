@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:100,300" rel="stylesheet">
+    <meta name="description" content="Rising Parenteens is a Non-Government Organization in the Philippines supporting teenage parents." />
+    <meta name="keywords" content="teen parents, Philippines, NGO, non-government organization, help, support, donate for a cause" />
+    <meta name="author" content="Rising Parenteens" />
+    <link rel="shortcut icon" href="img/logo.png"> 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <title>Rising Parenteens</title>
+</head>
+
+<body id="top">
+    <header class="header">
+        <a href="#top" class="logo">Rising Parenteen</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="#documentary">WATCH DOCUMENTARY</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#contact-us">Contact</a></li>
+            <li><a href="#japanese">日本語</a></li>
+        </ul>
+    </header>
+    <section class="fullsize-video-bg">
+        <div class="inner">
+            <div>
+                <h1>Watch full documentary</h1>
+                <p>with color and dot-grid overlay
+            </div>
+        </div>
+        <div id="video-viewport">
+            <video width="1920" height="1280" autoplay muted loop>
+                <source src="videos/rp-preview.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </section>
+    <section id="documentary" class="showcase">
+        <div class="container showcase-inner">
+            <h1>Watch Documentary</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas maiores sint impedit delectus quam molestiae explicabo cum facere ratione veritatis.</p>
+        </div>
+        <div class="tds-icon--jump tds-icon tds-icon-arrow_down tds-icon-arrow_down--inverted tds-icon-arrow_down--reveal"></div>
+    </section>
+    <section id="about" class="showcase">
+        <div class="container showcase-inner">
+            <h1>About Rising Parenteens Goes here...</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas maiores sint impedit delectus quam molestiae explicabo cum facere ratione veritatis.</p>
+        </div>
+    </section>
+    <section id="" class="showcase">
+        <div class="container showcase-inner">
+            <h1>Rise in Number</h1>
+            <p>Talk about the statistics of teen parents in the country in this section</p>
+        </div>
+    </section>
+    <section id="" class="showcase">
+        <div class="container showcase-inner">
+            <h1>Rise in Poverty</h1>
+            <p>Talks about the effects of being a teen parent in this section</p>
+        </div>
+    </section>
+    <section id="donate" class="showcase">
+        <div class="container showcase-inner">
+            <h1>Donate</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas maiores sint impedit delectus quam molestiae explicabo cum facere ratione veritatis.</p>
+        </div>
+    </section>
+    <section id="contact-us" class="showcase">
+        <div class="container showcase-inner">
+            <h1>Contact</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas maiores sint impedit delectus quam molestiae explicabo cum facere ratione veritatis.</p>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+var min_w = 300;
+var vid_w_orig;
+var vid_h_orig;
+
+$(function() {
+
+    vid_w_orig = parseInt($('video').attr('width'));
+    vid_h_orig = parseInt($('video').attr('height'));
+
+    $(window).resize(function() { fitVideo(); });
+    $(window).trigger('resize');
+
+});
+
+function fitVideo() {
+
+    $('#video-viewport').width($('.fullsize-video-bg').width());
+    $('#video-viewport').height($('.fullsize-video-bg').height());
+
+    var scale_h = $('.fullsize-video-bg').width() / vid_w_orig;
+    var scale_v = $('.fullsize-video-bg').height() / vid_h_orig;
+    var scale = scale_h > scale_v ? scale_h : scale_v;
+
+    if (scale * vid_w_orig < min_w) { scale = min_w / vid_w_orig; };
+
+    $('video').width(scale * vid_w_orig);
+    $('video').height(scale * vid_h_orig);
+
+    $('#video-viewport').scrollLeft(($('video').width() - $('.fullsize-video-bg').width()) / 2);
+    $('#video-viewport').scrollTop(($('video').height() - $('.fullsize-video-bg').height()) / 2);
+
+};
+</script>
+
+</html>
